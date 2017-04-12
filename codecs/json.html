@@ -1,0 +1,932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect2">
+<h3 id="_json">json</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Version: 3.0.2
+</p>
+</li>
+<li>
+<p>
+Released on: July 14, 2016
+</p>
+</li>
+<li>
+<p>
+<a href="https://github.com/logstash-plugins/logstash-codec-json/blob/master/CHANGELOG.md#302">Changelog</a>
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_getting_help">Getting Help</h4>
+<div class="paragraph"><p>For questions about the plugin, open a topic in the <a href="http://discuss.elastic.co">Discuss</a> forums. For bugs or feature requests, open an issue in <a href="https://github.com/elastic/logstash">Github</a>.
+For the list of Elastic supported plugins, please consult the <a href="https://www.elastic.co/support/matrix#show_logstash_plugins">Elastic Support Matrix</a>.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_description">Description</h4>
+<div class="paragraph"><p>This codec may be used to decode (via inputs) and encode (via outputs)
+full JSON messages. If the data being sent is a JSON array at its root multiple events will be created (one per element).</p></div>
+<div class="paragraph"><p>If you are streaming JSON messages delimited
+by <em>\n</em> then see the <code>json_lines</code> codec.</p></div>
+<div class="paragraph"><p>Encoding will result in a compact JSON representation (no line terminators or indentation)</p></div>
+<div class="paragraph"><p>If this codec recieves a payload from an input that is not valid JSON, then
+it will fall back to plain text and add a tag <code>_jsonparsefailure</code>. Upon a JSON
+failure, the payload will be stored in the <code>message</code> field.</p></div>
+<div class="paragraph"><p>&nbsp;</p></div>
+</div>
+<div class="sect3">
+<h4 id="_configuration_options">Configuration Options</h4>
+<div class="paragraph"><p>This plugin supports the following configuration options:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#plugins-codecs-json-options">[plugins-codecs-json-options]</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#plugins-codecs-common-options">[plugins-codecs-common-options]</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="plugins-codecs-json-options">Json Codec Options</h4>
+<div class="paragraph"><p>The following configuration options are supported by the json codec</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Setting </th>
+<th align="left" valign="top">Input type</th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-codecs-json-charset">[plugins-codecs-json-charset]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a>, one of <code>["ASCII-8BIT", "UTF-8", "US-ASCII", "Big5", "Big5-HKSCS", "Big5-UAO", "CP949", "Emacs-Mule", "EUC-JP", "EUC-KR", "EUC-TW", "GB2312", "GB18030", "GBK", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-10", "ISO-8859-11", "ISO-8859-13", "ISO-8859-14", "ISO-8859-15", "ISO-8859-16", "KOI8-R", "KOI8-U", "Shift_JIS", "UTF-16BE", "UTF-16LE", "UTF-32BE", "UTF-32LE", "Windows-31J", "Windows-1250", "Windows-1251", "Windows-1252", "IBM437", "IBM737", "IBM775", "CP850", "IBM852", "CP852", "IBM855", "CP855", "IBM857", "IBM860", "IBM861", "IBM862", "IBM863", "IBM864", "IBM865", "IBM866", "IBM869", "Windows-1258", "GB1988", "macCentEuro", "macCroatian", "macCyrillic", "macGreek", "macIceland", "macRoman", "macRomania", "macThai", "macTurkish", "macUkraine", "CP950", "CP951", "IBM037", "stateless-ISO-2022-JP", "eucJP-ms", "CP51932", "EUC-JIS-2004", "GB12345", "ISO-2022-JP", "ISO-2022-JP-2", "CP50220", "CP50221", "Windows-1256", "Windows-1253", "Windows-1255", "Windows-1254", "TIS-620", "Windows-874", "Windows-1257", "MacJapanese", "UTF-7", "UTF8-MAC", "UTF-16", "UTF-32", "UTF8-DoCoMo", "SJIS-DoCoMo", "UTF8-KDDI", "SJIS-KDDI", "ISO-2022-JP-KDDI", "stateless-ISO-2022-JP-KDDI", "UTF8-SoftBank", "SJIS-SoftBank", "BINARY", "CP437", "CP737", "CP775", "IBM850", "CP857", "CP860", "CP861", "CP862", "CP863", "CP864", "CP865", "CP866", "CP869", "CP1258", "Big5-HKSCS:2008", "ebcdic-cp-us", "eucJP", "euc-jp-ms", "EUC-JISX0213", "eucKR", "eucTW", "EUC-CN", "eucCN", "CP936", "ISO2022-JP", "ISO2022-JP2", "ISO8859-1", "ISO8859-2", "ISO8859-3", "ISO8859-4", "ISO8859-5", "ISO8859-6", "CP1256", "ISO8859-7", "CP1253", "ISO8859-8", "CP1255", "ISO8859-9", "CP1254", "ISO8859-10", "ISO8859-11", "CP874", "ISO8859-13", "CP1257", "ISO8859-14", "ISO8859-15", "ISO8859-16", "CP878", "MacJapan", "ASCII", "ANSI_X3.4-1968", "646", "CP65000", "CP65001", "UTF-8-MAC", "UTF-8-HFS", "UCS-2BE", "UCS-4BE", "UCS-4LE", "CP932", "csWindows31J", "SJIS", "PCK", "CP1250", "CP1251", "CP1252", "external", "locale"]</code></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Also see <a href="#plugins-codecs-common-options">[plugins-codecs-common-options]</a> for a list of options supported by all
+codec plugins.</p></div>
+<div class="paragraph"><p>&nbsp;</p></div>
+<div class="sect4">
+<h5 id="plugins-codecs-json-charset"><code>charset</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value can be any of: <code>ASCII-8BIT</code>, <code>UTF-8</code>, <code>US-ASCII</code>, <code>Big5</code>, <code>Big5-HKSCS</code>, <code>Big5-UAO</code>, <code>CP949</code>, <code>Emacs-Mule</code>, <code>EUC-JP</code>, <code>EUC-KR</code>, <code>EUC-TW</code>, <code>GB2312</code>, <code>GB18030</code>, <code>GBK</code>, <code>ISO-8859-1</code>, <code>ISO-8859-2</code>, <code>ISO-8859-3</code>, <code>ISO-8859-4</code>, <code>ISO-8859-5</code>, <code>ISO-8859-6</code>, <code>ISO-8859-7</code>, <code>ISO-8859-8</code>, <code>ISO-8859-9</code>, <code>ISO-8859-10</code>, <code>ISO-8859-11</code>, <code>ISO-8859-13</code>, <code>ISO-8859-14</code>, <code>ISO-8859-15</code>, <code>ISO-8859-16</code>, <code>KOI8-R</code>, <code>KOI8-U</code>, <code>Shift_JIS</code>, <code>UTF-16BE</code>, <code>UTF-16LE</code>, <code>UTF-32BE</code>, <code>UTF-32LE</code>, <code>Windows-31J</code>, <code>Windows-1250</code>, <code>Windows-1251</code>, <code>Windows-1252</code>, <code>IBM437</code>, <code>IBM737</code>, <code>IBM775</code>, <code>CP850</code>, <code>IBM852</code>, <code>CP852</code>, <code>IBM855</code>, <code>CP855</code>, <code>IBM857</code>, <code>IBM860</code>, <code>IBM861</code>, <code>IBM862</code>, <code>IBM863</code>, <code>IBM864</code>, <code>IBM865</code>, <code>IBM866</code>, <code>IBM869</code>, <code>Windows-1258</code>, <code>GB1988</code>, <code>macCentEuro</code>, <code>macCroatian</code>, <code>macCyrillic</code>, <code>macGreek</code>, <code>macIceland</code>, <code>macRoman</code>, <code>macRomania</code>, <code>macThai</code>, <code>macTurkish</code>, <code>macUkraine</code>, <code>CP950</code>, <code>CP951</code>, <code>IBM037</code>, <code>stateless-ISO-2022-JP</code>, <code>eucJP-ms</code>, <code>CP51932</code>, <code>EUC-JIS-2004</code>, <code>GB12345</code>, <code>ISO-2022-JP</code>, <code>ISO-2022-JP-2</code>, <code>CP50220</code>, <code>CP50221</code>, <code>Windows-1256</code>, <code>Windows-1253</code>, <code>Windows-1255</code>, <code>Windows-1254</code>, <code>TIS-620</code>, <code>Windows-874</code>, <code>Windows-1257</code>, <code>MacJapanese</code>, <code>UTF-7</code>, <code>UTF8-MAC</code>, <code>UTF-16</code>, <code>UTF-32</code>, <code>UTF8-DoCoMo</code>, <code>SJIS-DoCoMo</code>, <code>UTF8-KDDI</code>, <code>SJIS-KDDI</code>, <code>ISO-2022-JP-KDDI</code>, <code>stateless-ISO-2022-JP-KDDI</code>, <code>UTF8-SoftBank</code>, <code>SJIS-SoftBank</code>, <code>BINARY</code>, <code>CP437</code>, <code>CP737</code>, <code>CP775</code>, <code>IBM850</code>, <code>CP857</code>, <code>CP860</code>, <code>CP861</code>, <code>CP862</code>, <code>CP863</code>, <code>CP864</code>, <code>CP865</code>, <code>CP866</code>, <code>CP869</code>, <code>CP1258</code>, <code>Big5-HKSCS:2008</code>, <code>ebcdic-cp-us</code>, <code>eucJP</code>, <code>euc-jp-ms</code>, <code>EUC-JISX0213</code>, <code>eucKR</code>, <code>eucTW</code>, <code>EUC-CN</code>, <code>eucCN</code>, <code>CP936</code>, <code>ISO2022-JP</code>, <code>ISO2022-JP2</code>, <code>ISO8859-1</code>, <code>ISO8859-2</code>, <code>ISO8859-3</code>, <code>ISO8859-4</code>, <code>ISO8859-5</code>, <code>ISO8859-6</code>, <code>CP1256</code>, <code>ISO8859-7</code>, <code>CP1253</code>, <code>ISO8859-8</code>, <code>CP1255</code>, <code>ISO8859-9</code>, <code>CP1254</code>, <code>ISO8859-10</code>, <code>ISO8859-11</code>, <code>CP874</code>, <code>ISO8859-13</code>, <code>CP1257</code>, <code>ISO8859-14</code>, <code>ISO8859-15</code>, <code>ISO8859-16</code>, <code>CP878</code>, <code>MacJapan</code>, <code>ASCII</code>, <code>ANSI_X3.4-1968</code>, <code>646</code>, <code>CP65000</code>, <code>CP65001</code>, <code>UTF-8-MAC</code>, <code>UTF-8-HFS</code>, <code>UCS-2BE</code>, <code>UCS-4BE</code>, <code>UCS-4LE</code>, <code>CP932</code>, <code>csWindows31J</code>, <code>SJIS</code>, <code>PCK</code>, <code>CP1250</code>, <code>CP1251</code>, <code>CP1252</code>, <code>external</code>, <code>locale</code>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"UTF-8"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The character encoding used in this codec. Examples include "UTF-8" and
+"CP1252".</p></div>
+<div class="paragraph"><p>JSON requires valid UTF-8 strings, but in some cases, software that
+emits JSON does so in another encoding (nxlog, for example). In
+weird cases like this, you can set the <code>charset</code> setting to the
+actual encoding of the text and Logstash will convert it for you.</p></div>
+<div class="paragraph"><p>For nxlog users, you may to set this to "CP1252".</p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="plugins-codecs-common-options">Common Options</h4>
+<div class="paragraph"><p>The following configuration options are supported by all codec plugins:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Setting </th>
+<th align="left" valign="top">Input type</th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-codecs-json-enable_metric">[plugins-codecs-json-enable_metric]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-codecs-json-id">[plugins-codecs-json-id]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="plugins-codecs-json-enable_metric"><code>enable_metric</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>true</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Disable or enable metric logging for this specific plugin instance
+by default we record all the metrics we can, but you can disable metrics collection
+for a specific plugin.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-codecs-json-id"><code>id</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Add a unique <code>ID</code> to the plugin configuration. If no ID is specified, Logstash will generate one.
+It is strongly recommended to set this ID in your configuration. This is particularly useful
+when you have two or more plugins of the same type, for example, if you have 2 grok filters.
+Adding a named ID in this case will help in monitoring Logstash when using the monitoring APIs.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>output <span style="color: #FF0000">{</span>
+ stdout <span style="color: #FF0000">{</span>
+   id <span style="color: #990000">=&gt;</span> <span style="color: #FF0000">"my_plugin_id"</span>
+ <span style="color: #FF0000">}</span>
+<span style="color: #FF0000">}</span></tt></pre></div></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-04-12 16:08:44 EDT
+</div>
+</div>
+</body>
+</html>

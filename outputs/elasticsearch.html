@@ -1,0 +1,2229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title></title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install();
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect2">
+<h3 id="_elasticsearch">elasticsearch</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Version: 7.2.2
+</p>
+</li>
+<li>
+<p>
+Released on: March 28, 2017
+</p>
+</li>
+<li>
+<p>
+<a href="https://github.com/logstash-plugins/logstash-output-elasticsearch/blob/master/CHANGELOG.md#722">Changelog</a>
+</p>
+</li>
+</ul></div>
+<div class="sect3">
+<h4 id="_getting_help">Getting Help</h4>
+<div class="paragraph"><p>For questions about the plugin, open a topic in the <a href="http://discuss.elastic.co">Discuss</a> forums. For bugs or feature requests, open an issue in <a href="https://github.com/elastic/logstash">Github</a>.
+For the list of Elastic supported plugins, please consult the <a href="https://www.elastic.co/support/matrix#show_logstash_plugins">Elastic Support Matrix</a>.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_description">Description</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="title">Compatibility Note</div>
+<div class="paragraph"><p>called <code>http.content_type.required</code>. If this option is set to <code>true</code>, and you
+are using Logstash 2.4 through 5.2, you need to update the Elasticsearch output
+plugin to version 6.2.5 or higher.</p></div>
+</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>This plugin is the recommended method of storing logs in Elasticsearch.
+If you plan on using the Kibana web interface, you&#8217;ll want to use this output.</p></div>
+<div class="paragraph"><p>This output only speaks the HTTP protocol. HTTP is the preferred protocol for interacting with Elasticsearch as of Logstash 2.0.
+We strongly encourage the use of HTTP over the node protocol for a number of reasons. HTTP is only marginally slower,
+yet far easier to administer and work with. When using the HTTP protocol one may upgrade Elasticsearch versions without having
+to upgrade Logstash in lock-step.</p></div>
+<div class="paragraph"><p>You can learn more about Elasticsearch at <a href="https://www.elastic.co/products/elasticsearch">https://www.elastic.co/products/elasticsearch</a></p></div>
+</div>
+<div class="sect3">
+<h4 id="_template_management_for_elasticsearch_5_x">Template management for Elasticsearch 5.x</h4>
+<div class="paragraph"><p>Index template for this version (Logstash 5.0) has been changed to reflect Elasticsearch&#8217;s mapping changes in version 5.0.
+Most importantly, the subfield for string multi-fields has changed from <code>.raw</code> to <code>.keyword</code> to match ES default
+behavior.</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Users installing ES 5.x and LS 5.x **
+This change will not affect you and you will continue to use the ES defaults.
+</p>
+</li>
+<li>
+<p>
+Users upgrading from LS 2.x to LS 5.x with ES 5.x **
+LS will not force upgrade the template, if <code>logstash</code> template already exists. This means you will still use
+<code>.raw</code> for sub-fields coming from 2.x. If you choose to use the new template, you will have to reindex your data after
+the new template is installed.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_retry_policy">Retry Policy</h4>
+<div class="paragraph"><p>The retry policy has changed significantly in the 2.2.0 release.
+This plugin uses the Elasticsearch bulk API to optimize its imports into Elasticsearch. These requests may experience
+either partial or total failures.</p></div>
+<div class="paragraph"><p>The following errors are retried infinitely:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Network errors (inability to connect)
+</p>
+</li>
+<li>
+<p>
+429 (Too many requests) and
+</p>
+</li>
+<li>
+<p>
+503 (Service unavailable) errors
+</p>
+</li>
+</ul></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">409 exceptions are no longer retried. Please set a higher <code>retry_on_conflict</code> value if you experience 409 exceptions.
+It is more performant for Elasticsearch to retry these exceptions than this plugin.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_batch_sizes">Batch Sizes</h4>
+<div class="paragraph"><p>This plugin attempts to send batches of events as a single request. However, if
+a request exceeds 20MB we will break it up until multiple batch requests. If a single document exceeds 20MB it will be sent as a single request.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_dns_caching">DNS Caching</h4>
+<div class="paragraph"><p>This plugin uses the JVM to lookup DNS entries and is subject to the value of <a href="https://docs.oracle.com/javase/7/docs/technotes/guides/net/properties.html">networkaddress.cache.ttl</a>,
+a global setting for the JVM.</p></div>
+<div class="paragraph"><p>As an example, to set your DNS TTL to 1 second you would set
+the <code>LS_JAVA_OPTS</code> environment variable to <code>-Dnetworkaddress.cache.ttl=1</code>.</p></div>
+<div class="paragraph"><p>Keep in mind that a connection with keepalive enabled will
+not reevaluate its DNS value while the keepalive is in effect.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_http_compression">HTTP Compression</h4>
+<div class="paragraph"><p>This plugin supports request and response compression. Response compression is enabled by default and
+for Elasticsearch versions 5.0 and later, the user doesn&#8217;t have to set any configs in Elasticsearch for
+it to send back compressed response. For versions before 5.0, <code>http.compression</code> must be set to <code>true</code> in
+Elasticsearch[<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-http.html#modules-http">https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-http.html#modules-http</a>] to take advantage of response compression when using this plugin</p></div>
+<div class="paragraph"><p>For requests compression, regardless of the Elasticsearch version, users have to enable <code>http_compression</code>
+setting in their Logstash config file.</p></div>
+<div class="paragraph"><p>&nbsp;</p></div>
+</div>
+<div class="sect3">
+<h4 id="_configuration_options">Configuration Options</h4>
+<div class="paragraph"><p>This plugin supports the following configuration options:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<a href="#plugins-outputs-elasticsearch-options">[plugins-outputs-elasticsearch-options]</a>
+</p>
+</li>
+<li>
+<p>
+<a href="#plugins-outputs-common-options">[plugins-outputs-common-options]</a>
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="plugins-outputs-elasticsearch-options">Elasticsearch Output Options</h4>
+<div class="paragraph"><p>The following configuration options are supported by the elasticsearch output</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Setting </th>
+<th align="left" valign="top">Input type</th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-action">[plugins-outputs-elasticsearch-action]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-bulk_path">[plugins-outputs-elasticsearch-bulk_path]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-cacert">[plugins-outputs-elasticsearch-cacert]</a></p></td>
+<td align="left" valign="top"><p class="table">a valid filesystem path</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-doc_as_upsert">[plugins-outputs-elasticsearch-doc_as_upsert]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-document_id">[plugins-outputs-elasticsearch-document_id]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-document_type">[plugins-outputs-elasticsearch-document_type]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-failure_type_logging_whitelist">[plugins-outputs-elasticsearch-failure_type_logging_whitelist]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#array">array</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-flush_size">[plugins-outputs-elasticsearch-flush_size]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-healthcheck_path">[plugins-outputs-elasticsearch-healthcheck_path]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-hosts">[plugins-outputs-elasticsearch-hosts]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#uri">uri</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-http_compression">[plugins-outputs-elasticsearch-http_compression]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-idle_flush_time">[plugins-outputs-elasticsearch-idle_flush_time]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-index">[plugins-outputs-elasticsearch-index]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-keystore">[plugins-outputs-elasticsearch-keystore]</a></p></td>
+<td align="left" valign="top"><p class="table">a valid filesystem path</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-keystore_password">[plugins-outputs-elasticsearch-keystore_password]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#password">password</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-manage_template">[plugins-outputs-elasticsearch-manage_template]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-parameters">[plugins-outputs-elasticsearch-parameters]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#hash">hash</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-parent">[plugins-outputs-elasticsearch-parent]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-password">[plugins-outputs-elasticsearch-password]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#password">password</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-path">[plugins-outputs-elasticsearch-path]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-pipeline">[plugins-outputs-elasticsearch-pipeline]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-pool_max">[plugins-outputs-elasticsearch-pool_max]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-pool_max_per_route">[plugins-outputs-elasticsearch-pool_max_per_route]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-proxy">[plugins-outputs-elasticsearch-proxy]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#uri">uri</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-resurrect_delay">[plugins-outputs-elasticsearch-resurrect_delay]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-retry_initial_interval">[plugins-outputs-elasticsearch-retry_initial_interval]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-retry_max_interval">[plugins-outputs-elasticsearch-retry_max_interval]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-retry_on_conflict">[plugins-outputs-elasticsearch-retry_on_conflict]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-routing">[plugins-outputs-elasticsearch-routing]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-script">[plugins-outputs-elasticsearch-script]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-script_lang">[plugins-outputs-elasticsearch-script_lang]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-script_type">[plugins-outputs-elasticsearch-script_type]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a>, one of <code>["inline", "indexed", "file"]</code></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-script_var_name">[plugins-outputs-elasticsearch-script_var_name]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-scripted_upsert">[plugins-outputs-elasticsearch-scripted_upsert]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-sniffing">[plugins-outputs-elasticsearch-sniffing]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-sniffing_delay">[plugins-outputs-elasticsearch-sniffing_delay]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-sniffing_path">[plugins-outputs-elasticsearch-sniffing_path]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-ssl">[plugins-outputs-elasticsearch-ssl]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-ssl_certificate_verification">[plugins-outputs-elasticsearch-ssl_certificate_verification]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-template">[plugins-outputs-elasticsearch-template]</a></p></td>
+<td align="left" valign="top"><p class="table">a valid filesystem path</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-template_name">[plugins-outputs-elasticsearch-template_name]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-template_overwrite">[plugins-outputs-elasticsearch-template_overwrite]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-timeout">[plugins-outputs-elasticsearch-timeout]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-truststore">[plugins-outputs-elasticsearch-truststore]</a></p></td>
+<td align="left" valign="top"><p class="table">a valid filesystem path</p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-truststore_password">[plugins-outputs-elasticsearch-truststore_password]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#password">password</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-upsert">[plugins-outputs-elasticsearch-upsert]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-user">[plugins-outputs-elasticsearch-user]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-validate_after_inactivity">[plugins-outputs-elasticsearch-validate_after_inactivity]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-version">[plugins-outputs-elasticsearch-version]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-version_type">[plugins-outputs-elasticsearch-version_type]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a>, one of <code>["internal", "external", "external_gt", "external_gte", "force"]</code></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>Also see <a href="#plugins-outputs-common-options">[plugins-outputs-common-options]</a> for a list of options supported by all
+output plugins.</p></div>
+<div class="paragraph"><p>&nbsp;</p></div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-action"><code>action</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"index"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Protocol agnostic (i.e. non-http, non-java specific) configs go here
+Protocol agnostic methods
+The Elasticsearch action to perform. Valid actions are:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+index: indexes a document (an event from Logstash).
+</p>
+</li>
+<li>
+<p>
+delete: deletes a document by id (An id is required for this action)
+</p>
+</li>
+<li>
+<p>
+create: indexes a document, fails if a document by that id already exists in the index.
+</p>
+</li>
+<li>
+<p>
+update: updates a document by id. Update has a special case where you can upsert&#8201;&#8212;&#8201;update a
+  document if not already present. See the <code>upsert</code> option. NOTE: This does not work and is not supported
+  in Elasticsearch 1.x. Please upgrade to ES 2.x or greater to use this feature with Logstash!
+</p>
+</li>
+<li>
+<p>
+A sprintf style string to change the action based on the content of the event. The value <code>%{[foo]}</code>
+  would use the foo field for the action
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For more details on actions, check out the <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html">Elasticsearch bulk API documentation</a></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-bulk_path"><code>bulk_path</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>HTTP Path to perform the _bulk requests to
+this defaults to a concatenation of the path parameter and "_bulk"</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-cacert"><code>cacert</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#path">path</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The .cer or .pem file to validate the server&#8217;s certificate</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-doc_as_upsert"><code>doc_as_upsert</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>false</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Enable <code>doc_as_upsert</code> for update mode.
+Create a new document with source if <code>document_id</code> doesn&#8217;t exist in Elasticsearch</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-document_id"><code>document_id</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The document ID for the index. Useful for overwriting existing entries in
+Elasticsearch with the same ID.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-document_type"><code>document_type</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The document type to write events to. Generally you should try to write only
+similar events to the same <em>type</em>. String expansion <code>%{foo}</code> works here.
+Unless you set <em>document_type</em>, the event <em>type</em> will be used if it exists
+otherwise the document type will be assigned the value of <em>logs</em></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-failure_type_logging_whitelist"><code>failure_type_logging_whitelist</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#array">array</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>[]</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set the Elasticsearch errors in the whitelist that you don&#8217;t want to log.
+A useful example is when you want to skip all 409 errors
+which are <code>document_already_exists_exception</code>.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-flush_size"><code>flush_size</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This plugin uses the bulk index API for improved indexing performance.
+This setting defines the maximum sized bulk request Logstash will make.
+You may want to increase this to be in line with your pipeline&#8217;s batch size.
+If you specify a number larger than the batch size of your pipeline it will have no effect,
+save for the case where a filter increases the size of an inflight batch by outputting
+events.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-healthcheck_path"><code>healthcheck_path</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>HTTP Path where a HEAD request is sent when a backend is marked down
+the request is sent in the background to see if it has come back again
+before it is once again eligible to service requests.
+If you have custom firewall rules you may need to change this</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-hosts"><code>hosts</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#uri">uri</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>[//127.0.0.1]</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Sets the host(s) of the remote instance. If given an array it will load balance requests across the hosts specified in the <code>hosts</code> parameter.
+Remember the <code>http</code> protocol uses the <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-http.html#modules-http">http</a> address (eg. 9200, not 9300).
+    <code>"127.0.0.1"</code>
+    <code>["127.0.0.1:9200","127.0.0.2:9200"]</code>
+    <code>["http://127.0.0.1"]</code>
+    <code>["https://127.0.0.1:9200"]</code>
+    <code>["https://127.0.0.1:9200/mypath"]</code> (If using a proxy on a subpath)
+It is important to exclude <a href="http://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html">dedicated master nodes</a> from the <code>hosts</code> list
+to prevent LS from sending bulk requests to the master nodes.  So this parameter should only reference either data or client nodes in Elasticsearch.</p></div>
+<div class="paragraph"><p>Any special characters present in the URLs here MUST be URL escaped! This means <code>#</code> should be put in as <code>%23</code> for instance.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-http_compression"><code>http_compression</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>false</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Enable gzip compression on requests. Note that response compression is on by default for Elasticsearch v5.0 and beyond</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-idle_flush_time"><code>idle_flush_time</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>1</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The amount of time since last flush before a flush is forced.</p></div>
+<div class="paragraph"><p>This setting helps ensure slow event rates don&#8217;t get stuck in Logstash.
+For example, if your <code>flush_size</code> is 100, and you have received 10 events,
+and it has been more than <code>idle_flush_time</code> seconds since the last flush,
+Logstash will flush those 10 events automatically.</p></div>
+<div class="paragraph"><p>This helps keep both fast and slow log streams moving along in
+near-real-time.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-index"><code>index</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"logstash-%{+YYYY.MM.dd}"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The index to write events to. This can be dynamic using the <code>%{foo}</code> syntax.
+The default value will partition your indices by day so you can more easily
+delete old data or only search specific date ranges.
+Indexes may not contain uppercase characters.
+For weekly indexes ISO 8601 format is recommended, eg. logstash-%{+xxxx.ww}.
+LS uses Joda to format the index pattern from event timestamp.
+Joda formats are defined <a href="http://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html">here</a>.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-keystore"><code>keystore</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#path">path</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The keystore used to present a certificate to the server.
+It can be either .jks or .p12</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-keystore_password"><code>keystore_password</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#password">password</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set the keystore password</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-manage_template"><code>manage_template</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>true</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>From Logstash 1.3 onwards, a template is applied to Elasticsearch during
+Logstash&#8217;s startup if one with the name <code>template_name</code> does not already exist.
+By default, the contents of this template is the default template for
+<code>logstash-%{+YYYY.MM.dd}</code> which always matches indices based on the pattern
+<code>logstash-*</code>.  Should you require support for other index names, or would like
+to change the mappings in the template in general, a custom template can be
+specified by setting <code>template</code> to the path of a template file.</p></div>
+<div class="paragraph"><p>Setting <code>manage_template</code> to false disables this feature.  If you require more
+control over template creation, (e.g. creating indices dynamically based on
+field names) you should set <code>manage_template</code> to false and use the REST
+API to apply your templates manually.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-parameters"><code>parameters</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#hash">hash</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Pass a set of key value pairs as the URL query string. This query string is added
+to every host listed in the <em>hosts</em> configuration. If the <em>hosts</em> list contains
+urls that already have query strings, the one specified here will be appended.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-parent"><code>parent</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>nil</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>For child documents, ID of the associated parent.
+This can be dynamic using the <code>%{foo}</code> syntax.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-password"><code>password</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#password">password</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Password to authenticate to a secure Elasticsearch cluster</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-path"><code>path</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>HTTP Path at which the Elasticsearch server lives. Use this if you must run Elasticsearch behind a proxy that remaps
+the root path for the Elasticsearch HTTP API lives.
+Note that if you use paths as components of URLs in the <em>hosts</em> field you may
+not also set this field. That will raise an error at startup</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-pipeline"><code>pipeline</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>nil</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set which ingest pipeline you wish to execute for an event. You can also use event dependent configuration
+here like <code>pipeline =&gt; "%{INGEST_PIPELINE}"</code></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-pool_max"><code>pool_max</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>1000</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>While the output tries to reuse connections efficiently we have a maximum.
+This sets the maximum number of open connections the output will create.
+Setting this too low may mean frequently closing / opening connections
+which is bad.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-pool_max_per_route"><code>pool_max_per_route</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>100</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>While the output tries to reuse connections efficiently we have a maximum per endpoint.
+This sets the maximum number of open connections per endpoint the output will create.
+Setting this too low may mean frequently closing / opening connections
+which is bad.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-proxy"><code>proxy</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#uri">uri</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set the address of a forward HTTP proxy.
+This used to accept hashes as arguments but now only accepts
+arguments of the URI type to prevent leaking credentials.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-resurrect_delay"><code>resurrect_delay</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>5</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>How frequently, in seconds, to wait between resurrection attempts.
+Resurrection is the process by which backend endpoints marked <em>down</em> are checked
+to see if they have come back to life</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-retry_initial_interval"><code>retry_initial_interval</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>2</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set initial interval in seconds between bulk retries. Doubled on each retry up to <code>retry_max_interval</code></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-retry_max_interval"><code>retry_max_interval</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>64</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set max interval in seconds between bulk retries.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-retry_on_conflict"><code>retry_on_conflict</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>1</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The number of times Elasticsearch should internally retry an update/upserted document
+See the <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/partial-updates.html">partial updates</a>
+for more info</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-routing"><code>routing</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>A routing override to be applied to all processed events.
+This can be dynamic using the <code>%{foo}</code> syntax.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-script"><code>script</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>""</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set script name for scripted update mode</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-script_lang"><code>script_lang</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"painless"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set the language of the used script. If not set, this defaults to painless in ES 5.0</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-script_type"><code>script_type</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value can be any of: <code>inline</code>, <code>indexed</code>, <code>file</code>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>["inline"]</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Define the type of script referenced by "script" variable
+ inline : "script" contains inline script
+ indexed : "script" contains the name of script directly indexed in elasticsearch
+ file    : "script" contains the name of script stored in elasticseach&#8217;s config directory</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-script_var_name"><code>script_var_name</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"event"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set variable name passed to script (scripted update)</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-scripted_upsert"><code>scripted_upsert</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>false</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>if enabled, script is in charge of creating non-existent document (scripted update)</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-sniffing"><code>sniffing</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>false</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This setting asks Elasticsearch for the list of all cluster nodes and adds them to the hosts list.
+Note: This will return ALL nodes with HTTP enabled (including master nodes!). If you use
+this with master nodes, you probably want to disable HTTP on them by setting
+<code>http.enabled</code> to false in their elasticsearch.yml. You can either use the <code>sniffing</code> option or
+manually enter multiple Elasticsearch hosts using the <code>hosts</code> parameter.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-sniffing_delay"><code>sniffing_delay</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>5</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>How long to wait, in seconds, between sniffing attempts</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-sniffing_path"><code>sniffing_path</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>HTTP Path to be used for the sniffing requests
+the default value is computed by concatenating the path value and "_nodes/http"
+if sniffing_path is set it will be used as an absolute path
+do not use full URL here, only paths, e.g. "/sniff/_nodes/http"</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-ssl"><code>ssl</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Enable SSL/TLS secured communication to Elasticsearch cluster. Leaving this unspecified will use whatever scheme
+is specified in the URLs listed in <em>hosts</em>. If no explicit protocol is specified plain HTTP will be used.
+If SSL is explicitly disabled here the plugin will refuse to start if an HTTPS URL is given in <em>hosts</em></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-ssl_certificate_verification"><code>ssl_certificate_verification</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>true</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Option to validate the server&#8217;s certificate. Disabling this severely compromises security.
+For more information on disabling certificate verification please read
+<a href="https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf">https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf</a></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-template"><code>template</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#path">path</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>You can set the path to your own template here, if you so desire.
+If not set, the included template will be used.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-template_name"><code>template_name</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"logstash"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>This configuration option defines how the template is named inside Elasticsearch.
+Note that if you have used the template management features and subsequently
+change this, you will need to prune the old template manually, e.g.</p></div>
+<div class="paragraph"><p><code>curl -XDELETE &lt;http://localhost:9200/_template/OldTemplateName?pretty&gt;</code></p></div>
+<div class="paragraph"><p>where <code>OldTemplateName</code> is whatever the former setting was.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-template_overwrite"><code>template_overwrite</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>false</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The template_overwrite option will always overwrite the indicated template
+in Elasticsearch with either the one indicated by template or the included one.
+This option is set to false by default. If you always want to stay up to date
+with the template provided by Logstash, this option could be very useful to you.
+Likewise, if you have your own template file managed by puppet, for example, and
+you wanted to be able to update it regularly, this option could help there as well.</p></div>
+<div class="paragraph"><p>Please note that if you are using your own customized version of the Logstash
+template (logstash), setting this to true will make Logstash to overwrite
+the "logstash" template (i.e. removing all customized settings)</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-timeout"><code>timeout</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>60</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set the timeout, in seconds, for network operations and requests sent Elasticsearch. If
+a timeout occurs, the request will be retried.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-truststore"><code>truststore</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#path">path</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The JKS truststore to validate the server&#8217;s certificate.
+Use either <code>:truststore</code> or <code>:cacert</code></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-truststore_password"><code>truststore_password</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#password">password</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set the truststore password</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-upsert"><code>upsert</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>""</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Set upsert content for update mode.s
+Create a new document with this parameter as json string if <code>document_id</code> doesn&#8217;t exists</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-user"><code>user</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Username to authenticate to a secure Elasticsearch cluster</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-validate_after_inactivity"><code>validate_after_inactivity</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#number">number</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>10000</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>How long to wait before checking if the connection is stale before executing a request on a connection using keepalive.
+You may want to set this lower, if you get connection errors regularly
+Quoting the Apache commons docs (this client is based Apache Commmons):
+<em>Defines period of inactivity in milliseconds after which persistent connections must
+be re-validated prior to being leased to the consumer. Non-positive value passed to
+this method disables connection validation. This check helps detect connections that
+have become stale (half-closed) while kept inactive in the pool.</em>
+See <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/impl/conn/PoolingHttpClientConnectionManager.html#setValidateAfterInactivity(int)">these docs for more info</a></p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-version"><code>version</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The version to use for indexing. Use sprintf syntax like <code>%{my_version}</code> to use a field value here.
+See <a href="https://www.elastic.co/blog/elasticsearch-versioning-support">https://www.elastic.co/blog/elasticsearch-versioning-support</a>.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-version_type"><code>version_type</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value can be any of: <code>internal</code>, <code>external</code>, <code>external_gt</code>, <code>external_gte</code>, <code>force</code>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The version_type to use for indexing.
+See <a href="https://www.elastic.co/blog/elasticsearch-versioning-support">https://www.elastic.co/blog/elasticsearch-versioning-support</a>.
+See also <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#_version_types">https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-index_.html#_version_types</a></p></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="plugins-outputs-common-options">Common Options</h4>
+<div class="paragraph"><p>The following configuration options are supported by all output plugins:</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+<thead>
+<tr>
+<th align="left" valign="top">Setting </th>
+<th align="left" valign="top">Input type</th>
+<th align="left" valign="top">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-codec">[plugins-outputs-elasticsearch-codec]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#codec">codec</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-enable_metric">[plugins-outputs-elasticsearch-enable_metric]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#boolean">boolean</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-id">[plugins-outputs-elasticsearch-id]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#string">string</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><a href="#plugins-outputs-elasticsearch-workers">[plugins-outputs-elasticsearch-workers]</a></p></td>
+<td align="left" valign="top"><p class="table"><a href="#number">number</a></p></td>
+<td align="left" valign="top"><p class="table">No</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-codec"><code>codec</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#codec">codec</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>"plain"</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The codec used for output data. Output codecs are a convenient method for encoding your data before it leaves the output, without needing a separate filter in your Logstash pipeline.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-enable_metric"><code>enable_metric</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#boolean">boolean</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>true</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Disable or enable metric logging for this specific plugin instance
+by default we record all the metrics we can, but you can disable metrics collection
+for a specific plugin.</p></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-id"><code>id</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+There is no default value for this setting.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Add a unique <code>ID</code> to the plugin configuration. If no ID is specified, Logstash will generate one.
+It is strongly recommended to set this ID in your configuration. This is particularly useful
+when you have two or more plugins of the same type, for example, if you have 2 grok filters.
+Adding a named ID in this case will help in monitoring Logstash when using the monitoring APIs.</p></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.8
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>output <span style="color: #FF0000">{</span>
+ stdout <span style="color: #FF0000">{</span>
+   id <span style="color: #990000">=&gt;</span> <span style="color: #FF0000">"my_plugin_id"</span>
+ <span style="color: #FF0000">}</span>
+<span style="color: #FF0000">}</span></tt></pre></div></div>
+</div>
+<div class="sect4">
+<h5 id="plugins-outputs-elasticsearch-workers"><code>workers</code></h5>
+<div class="ulist"><ul>
+<li>
+<p>
+Value type is <a href="#string">string</a>
+</p>
+</li>
+<li>
+<p>
+Default value is <code>1</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>when we no longer support the :legacy type
+This is hacky, but it can only be herne</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-04-12 16:51:45 EDT
+</div>
+</div>
+</body>
+</html>
