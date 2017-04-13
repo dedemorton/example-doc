@@ -72,4 +72,4 @@ For nxlog users, you may to set this to "CP1252".
 
 
 
-include::../../docs/include/{type}.asciidoc[]
+include::../include/{type}.asciidoc[]

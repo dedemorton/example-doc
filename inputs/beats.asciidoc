@@ -237,4 +237,4 @@ The minimum TLS version allowed for the encrypted connections. The value must be
 
 
 
-include::../../docs/include/{type}.asciidoc[]
+include::../include/{type}.asciidoc[]

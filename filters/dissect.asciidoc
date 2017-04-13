@@ -219,4 +219,4 @@ Append values to the `tags` field when dissection fails
 
 
 
-include::../../docs/include/{type}.asciidoc[]
+include::../include/{type}.asciidoc[]
